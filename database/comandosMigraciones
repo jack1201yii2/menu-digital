@@ -1,0 +1,37 @@
+Instlara el plugin
+	https://github.com/laracasts/Laravel-5-Generators-Extended
+		composer require laracasts/generators --dev
+
+Si no queremos agregar modelos ponemos --model=0
+
+------------crear antes de user
+php artisan make:migration:schema create_restaurants_table --schema="restaurant_name:string,rfc:string"
+
+php artisan make:migration:schema create_branch_offices_table --schema="branch_office_name:string,restaurant_id:bigInteger:unsigned:foreign"
+
+------------crear despues de user
+php artisan make:migration:schema create_restaurant_users_table --schema="restaurant_id:bigInteger:unsigned:foreign,user_id:unsignedBigInteger:foreign"
+
+php artisan make:migration:schema create_ingredients_table --schema="ingretient_name:string,unit:string,quantity:double,branch_office_id:bigInteger:unsigned:foreign"
+
+php artisan make:migration:schema create_areas_table --schema="area_name:string"
+
+php artisan make:migration:schema create_diners_table --schema="diner_name:string,diner_nickname:string"
+
+php artisan make:migration:schema create_tables_table --schema="table_number:string,branch_office_id:bigInteger:unsigned:foreign,area_id:bigInteger:unsigned:foreign"
+
+php artisan make:migration:schema create_table_diners_table --schema="diner_id:bigInteger:unsigned:foreign,table_id:bigInteger:unsigned:foreign"
+
+php artisan make:migration:schema create_foods_table --schema="food_name:string,food_price:double,food_description:string,restaurant_id:bigInteger:unsigned:foreign"
+
+php artisan make:migration:schema create_drinks_table --schema="drink_name:string,drink_price:double,drink_description:string,restaurant_id:bigInteger:unsigned:foreign"
+
+php artisan make:migration:schema create_ingredient_recipes_table --schema="ingredient_id:bigInteger:unsigned:foreign,drink_id:bigInteger:unsigned:foreign,food_id:bigInteger:unsigned:foreign,ingretient_unit:string"
+
+php artisan make:migration:schema create_food_branch_offices_table --schema="food_id:bigInteger:unsigned:foreign,branch_office_id:bigInteger:unsigned:foreign"
+
+php artisan make:migration:schema create_food_table_diners_table --schema="food_id:bigInteger:unsigned:foreign,table_diner_id:bigInteger:unsigned:foreign"
+
+php artisan make:migration:schema create_drink_branch_offices_table --schema="drink_id:bigInteger:unsigned:foreign,branch_office_id:bigInteger:unsigned:foreign"
+
+php artisan make:migration:schema create_drink_table_diners_table --schema="drink_id:bigInteger:unsigned:foreign,table_diner_id:bigInteger:unsigned:foreign"
